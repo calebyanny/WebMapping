@@ -18,30 +18,61 @@
          body { margin:0; padding:0; }
      #map { position:absolute; top:0; bottom:0; width:100%; }
 
-
+#title { z-index: 9999; 
+         background-color:lightskyblue; 
+         opacity: 80%; 
+         text-align: center 
+     }
     </style>
   </head>
 
   <body>
     <!--  Insert the map div here in the <body> of the page  -->
-   
+ <div id='map'></div>
     <!--  Insert the tile div here (part V) -->
- 
+ <div id='title'>
+     		<h1>My Map of Boston</h1>
+     		<h2>By: Caleb Yianakopolos</h2>
+ 	</div>
     <script>
-        // Insert the JavaScript within the <script> tags, within the body   
+        // Insert the JavaScript within the <script> tags, within the body
+ 
         // Start with the Mapbox access token here
   mapboxgl.accessToken ='pk.eyJ1IjoiY2FsZWJ5YW5ueSIsImEiOiJjbGc1ZmE5bGEwMGxmM2twZm54aXltdmozIn0.I9n4ZXHmkMwq6aBEs9Ecxg';
    
         // Then initialize the map here
-   
+   var map = new mapboxgl.Map({
+     container: 'map', // id of a div on your page, where the map will be inserted
+     style: 'mapbox://styles/mapbox/satellite-v9', // stylesheet location
+     center: [-71.0589,42.3601 ], // starting position [lng, lat] eg. [-122.6788, 45.5212]
+     zoom: 11 // starting zoom 
+ });
     
 
         // Add popup markers here  (part IV)
         
+        var marker = new mapboxgl.Marker()
+   .setLngLat([-71.0589,42.3601]) // starting position [lng, lat] 
+   .addTo(map);
         // Add any other variables such as markers here (part III)
-
+ var marker = new mapboxgl.Marker({color:'blue'})
+   .setLngLat([-71.0096, 42.3656]) // starting position [lng, lat] 
+   .addTo(map);
+        var marker2 = new mapboxgl.Marker({color:'green'})
+   .setLngLat([-71.0589, 42.3601]) // starting position [lng, lat] 
+   .addTo(map);
+      
+ var popup_layer = new mapboxgl.Popup({closeOnClick: true}) 
+     .setLngLat([-71.0589, 42.3601]) //popup coordinates
+     .setHTML('<h1>Hi Boston!</h1>') //popup text
+     .addTo(map); //add this popup to the map!
         // Add optional advanced "On load" function here
-        
+      var popup_layer_airport = new mapboxgl.Popup({
+       closeOnClick: false, anchor: 'top-left'
+     })
+     .setLngLat([-71.0096, 42.3656])
+     .setHTML('<a href="https://https://www.massport.com/logan-airport/</a>')
+     .addTo(map);  
     </script>
 
   </body>
