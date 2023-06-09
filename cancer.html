@@ -1,8 +1,8 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html>
  <head>
      <meta charset='utf-8' />
-     <title>Owners vs Renters Map</title>
+     <title>Cancer Map</title>
      <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
@@ -94,12 +94,12 @@
 
    <div id='map'></div>
      
-     <div class="descriptionPanel" id="descriptionPanel" style="height: 250px;">
+     <div class="descriptionPanel" id="descriptionPanel" style="height: 300px;">
      <span onClick=panelSelect() id="glyph" class="chevron glyphicon glyphicon-chevron-down"></span>
      <hr/>
      <h4>WHAT AM I LOOKING AT?</h4>
      <p style="margin-left: 10px; margin-right: 10px;">
-       This is a map showing the top ten cancer centers in Oregon. It also displays the most populous cities in Oregon, as well as centroid block data displaying the most populated parts of each county. Points are colored based on Cities and Block Centroids.
+       This is a map showing the top 10 cancer centers in Oregon. It also displays the most populous cities in Oregon, as well as centroid block data which are data points displaying the most populated parts of each county. Points are colored based on Cities and Block Centroids. Interestingly we can see that not one of the top 10 hospitals is located on the eastern half of Oregon.
      </p>
    </div>
      
@@ -113,13 +113,14 @@
          <span class="layerDescription">BlockCentroids</span>
      </div>
    </div>
-   <script>
+   <script>    
+       
      mapboxgl.accessToken = 'pk.eyJ1IjoiY2FsZWJ5YW5ueSIsImEiOiJjbGltZ3Z1b3MwdzQwM3NwNjJjOHVvdW84In0.1Y_hv7uLIoWvjkLglAzeiA'; 
      var map = new mapboxgl.Map({
          container: 'map', // container id
-         style: 'mapbox://styles/calebyanny/climg48e4007801rb9oofb8uk', // stylesheet location
+         style: 'mapbox://styles/calebyanny/clioy8kl1006p01pw69dtbi6n', // stylesheet location
      });
-       
+      
         // Add zoom and rotation controls to the map.
  map.addControl(new mapboxgl.NavigationControl());
        
